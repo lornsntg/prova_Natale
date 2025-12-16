@@ -1,0 +1,31 @@
+<div class="home-container">
+  <header class="header">
+    <h1>Benvenuto nella Home Page</h1>
+  </header>
+  
+  <main class="main-content">
+    <div class="user-info" *ngIf="userEmail">
+      <p>Sei loggato come: <strong>{{ userEmail }}</strong></p>
+    </div>
+    
+    <div class="user-info" *ngIf="!userEmail">
+      <p>Nessun utente loggato</p>
+    </div>
+    
+    <div class="actions">
+      <button 
+        (click)="refreshUser()"
+        class="btn btn-info">
+        Aggiorna Info Utente
+      </button>
+      
+      <button 
+        (click)="onLogout()" 
+        [disabled]="loading"
+        class="btn btn-danger">
+        <span *ngIf="loading">Disconnessione in corso...</span>
+        <span *ngIf="!loading">Logout</span>
+      </button>
+    </div>
+  </main>
+</div>

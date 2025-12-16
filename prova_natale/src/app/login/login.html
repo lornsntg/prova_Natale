@@ -1,0 +1,45 @@
+<div class="login-container">
+  <h2>Login / Registrazione</h2>
+  
+  <div class="form-group">
+    <label for="email">Email:</label>
+    <input 
+      type="email" 
+      id="email" 
+      [(ngModel)]="email" 
+      placeholder="Inserisci la tua email"
+      [disabled]="loading">
+  </div>
+  
+  <div class="form-group">
+    <label for="password">Password:</label>
+    <input 
+      type="password" 
+      id="password" 
+      [(ngModel)]="password" 
+      placeholder="Inserisci la tua password"
+      [disabled]="loading">
+  </div>
+  
+  <div class="error-message" *ngIf="errorMessage">
+    {{ errorMessage }}
+  </div>
+  
+  <div class="buttons-container">
+    <button 
+      (click)="onLogin()" 
+      [disabled]="loading"
+      class="btn btn-primary">
+      <span *ngIf="loading">Caricamento...</span>
+      <span *ngIf="!loading">Login</span>
+    </button>
+    
+    <button 
+      (click)="onRegister()" 
+      [disabled]="loading"
+      class="btn btn-secondary">
+      <span *ngIf="loading">Caricamento...</span>
+      <span *ngIf="!loading">Registrati</span>
+    </button>
+  </div>
+</div>
